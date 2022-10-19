@@ -1,0 +1,14 @@
+@mixin center-x {
+  display: flex;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+@mixin box-layout {
+  display: flex;
+  width: 360px;
+  height: 545px;
+  padding: 31px 27px 31px;
+  background-color: white;
+  @include cola-image;
+}

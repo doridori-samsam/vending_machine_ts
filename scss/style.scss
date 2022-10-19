@@ -1,0 +1,33 @@
+@import "layout";
+@import "variables";
+
+main {
+  @include center-x;
+  background-color: $bg-color;
+  flex-direction: column;
+  gap: 77px;
+  .img-logo {
+    width: 386px;
+    height: 178px;
+  }
+}
+
+.machine-wrapper {
+  display: flex;
+  gap: 28px;
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+}
+
+.cola-wrapper {
+  @include box-layout;
+  border: none;
+  .cola-list {
+    background-color: blue;
+  }
+}
+
+.cart-wrapper {
+  @include box-layout;
+}

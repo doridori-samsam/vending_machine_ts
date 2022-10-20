@@ -1,10 +1,29 @@
 @mixin price-button {
   width: 70px;
   height: 22px;
+  border-radius: 50px;
   background-color: $primary-color;
   font-family: $basic-font;
   font-size: 12px;
+  line-height: 24px;
+  color: white;
   text-align: center;
+}
+
+@mixin cola-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 94px;
+  height: 130px;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: $border-color;
+  background-color: #ffffff;
+  box-shadow: $box-shadow;
+  font-size: 9px;
+  gap: 7px;
 }
 
 @mixin cola-image {
@@ -12,4 +31,14 @@
     width: 36px;
     height: 65px;
   }
+}
+
+@mixin input-money-btn {
+  width: 94px;
+  height: 33px;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  font-size: 13px;
+  line-height: 35px;
 }

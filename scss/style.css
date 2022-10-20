@@ -17,11 +17,11 @@ main {
   background-color: #eae8fe;
   flex-direction: column;
   gap: 77px;
+  box-sizing: border-box;
 }
 main .img-logo {
   width: 386px;
   height: 178px;
-  align-self: flex-end;
 }
 
 .machine-wrapper {
@@ -38,24 +38,196 @@ main .img-logo {
 
 .cola-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 360px;
   height: 545px;
-  padding: 31px 27px 31px;
-  background-color: white;
+  box-sizing: border-box;
+  font-family: "GmarketSansMedium";
+  padding: 31px 0;
+  gap: 20px;
+  background-color: #ffffff;
 }
-.cola-wrapper .img-cola {
+.cola-wrapper .cola-list {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.cola-wrapper .cola-list li :hover {
+  outline: 2px solid #6327fe;
+}
+.cola-wrapper .cola-list li button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 94px;
+  height: 130px;
+  border: 1px solid;
+  border-radius: 12px;
+  border-color: #bdbdbd;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-size: 9px;
+  gap: 7px;
+}
+.cola-wrapper .cola-list li button .img-cola {
+  pointer-events: none;
   width: 36px;
   height: 65px;
+}
+.cola-wrapper .cola-list li button p {
+  pointer-events: none;
+}
+.cola-wrapper .cola-list li button .price {
+  width: 70px;
+  height: 22px;
+  border-radius: 50px;
+  background-color: #6327fe;
+  font-family: "GmarketSansMedium";
+  font-size: 12px;
+  line-height: 24px;
+  color: white;
+  text-align: center;
+}
+.cola-wrapper .input-box {
+  display: grid;
+  grid-template-columns: 200px 94px;
+  grid-template-rows: 33px 33px 106px;
+  gap: 12px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.cola-wrapper .input-box .change-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 33px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #eae8fe;
+  font-size: 14px;
+}
+.cola-wrapper .input-box .input-money {
+  width: 200px;
+  height: 33px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-family: "GmarketSansMedium";
+}
+.cola-wrapper .input-box .input-money:focus {
+  outline: 1px solid #6327fe;
+}
+.cola-wrapper .input-box .selected-cola-display {
+  width: 200px;
+  height: 108px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #bdbdbd;
+  background-color: #eae8fe;
+}
+.cola-wrapper .input-box .btn-change-return {
+  width: 94px;
+  height: 33px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-size: 13px;
+  line-height: 35px;
+}
+.cola-wrapper .input-box .btn-deposit {
+  width: 94px;
+  height: 33px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  font-size: 13px;
+  line-height: 35px;
+}
+.cola-wrapper .input-box .btn-acquire {
+  width: 94px;
+  height: 108px;
+  border-radius: 5px;
+  background-color: #6327fe;
+  font-family: "GmarketSansBold";
+  font-size: 14px;
+  color: #ffffff;
 }
 
 .cart-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 360px;
   height: 545px;
-  padding: 31px 27px 31px;
-  background-color: white;
+  box-sizing: border-box;
+  font-family: "GmarketSansMedium";
+  gap: 28px;
 }
-.cart-wrapper .img-cola {
-  width: 36px;
-  height: 65px;
+.cart-wrapper .balance-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #ffffff;
+}
+.cart-wrapper .balance-box .balance-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 306px;
+  height: 32px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #eae8fe;
+  font-size: 14px;
+}
+.cart-wrapper .balance-box .balance-display .balance-money {
+  font-family: "GmarketSansBold";
+}
+.cart-wrapper .acquired-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+.cart-wrapper .acquired-box .acquired-box-title {
+  font-family: "GmarketSansBold";
+  font-size: 15px;
+}
+.cart-wrapper .acquired-box .acquired-cola-display {
+  width: 306px;
+  height: 364px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  background-color: #eae8fe;
+}
+.cart-wrapper .acquired-box .acquired-total {
+  align-self: flex-end;
+  padding-right: 25px;
+  font-size: 14px;
 }/*# sourceMappingURL=style.css.map */

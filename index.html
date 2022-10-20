@@ -18,12 +18,14 @@
         <div class="cola-wrapper">
           <ul class="cola-list">
             <li>
-              <button>
+              <button class="btn-cola">
                 <img
                   class="img-cola"
                   src="/assets/images/Original_Cola.png"
                   alt="오리지날 콜라"
                 />
+                <p>Original_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
@@ -31,8 +33,10 @@
                 <img
                   class="img-cola"
                   src="/assets/images/Violet_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="바이올렛 콜라"
                 />
+                <p>Original_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
@@ -40,8 +44,10 @@
                 <img
                   class="img-cola"
                   src="/assets/images/Yellow_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="옐로우 콜라"
                 />
+                <p>Original_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
@@ -49,8 +55,10 @@
                 <img
                   class="img-cola"
                   src="/assets/images/Cool_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="쿨 콜라"
                 />
+                <p>Original_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
@@ -58,8 +66,10 @@
                 <img
                   class="img-cola"
                   src="/assets/images/Green_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="그린 콜라"
                 />
+                <p>Original_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
@@ -67,13 +77,41 @@
                 <img
                   class="img-cola"
                   src="/assets/images/Orange_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="오렌지 콜라"
                 />
+                <p>Original_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
           </ul>
+          <div class="input-box">
+            <div class="change-display">
+              <span>잔액:</span>
+              <span class="change-money">1,000원</span>
+            </div>
+            <button class="btn-change-return">거스름돈 반환</button>
+            <input type="text" placeholder="입금액 입력" class="input-money" />
+            <button class="btn-deposit">입금</button>
+            <ul class="selected-cola-display"></ul>
+            <button class="btn-acquire">획득</button>
+          </div>
         </div>
-        <div class="cart-wrapper">계산기</div>
+        <div class="cart-wrapper">
+          <div class="balance-box">
+            <div class="balance-display">
+              <span>소지금:</span>
+              <span class="balance-money">25,000<span> 원</span></span>
+            </div>
+          </div>
+          <div class="acquired-box">
+            <p class="acquired-box-title">획득한 음료</p>
+            <ul class="acquired-cola-display"></ul>
+            <div class="acquired-total">
+              <span>총 금액 : </span>
+              <span>9,000원</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   </body>

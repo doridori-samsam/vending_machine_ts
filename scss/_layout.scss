@@ -6,9 +6,29 @@
 
 @mixin box-layout {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 360px;
   height: 545px;
-  padding: 31px 27px 31px;
-  background-color: white;
-  @include cola-image;
+  box-sizing: border-box;
+  font-family: $basic-font;
+}
+
+@mixin cola-select-box {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  width: fit-content;
+  height: fit-content;
+}
+
+@mixin user-input-box {
+  display: grid;
+  grid-template-columns: 200px 94px;
+  grid-template-rows: 33px 33px 106px;
+  gap: 12px;
+  width: fit-content;
+  height: fit-content;
 }

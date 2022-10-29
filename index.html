@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="/scss/style.css" />
-    <script src="index.js"></script>
+
     <title>Cola vending machine</title>
+    <script type="module" src="Data.js"></script>
   </head>
   <body>
     <main>
@@ -18,63 +19,107 @@
         <div class="cola-wrapper">
           <ul class="cola-list">
             <li>
-              <button>
+              <button type="button" class="btn-cola" id="Original_Cola">
                 <img
                   class="img-cola"
                   src="/assets/images/Original_Cola.png"
                   alt="오리지날 콜라"
                 />
+                <p>Original_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
-              <button>
+              <button type="button" class="btn-cola" id="Violet_Cola">
                 <img
                   class="img-cola"
                   src="/assets/images/Violet_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="바이올렛 콜라"
                 />
+                <p>Violet_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
-              <button>
+              <button type="button" class="btn-cola" id="Yellow_Cola">
                 <img
                   class="img-cola"
                   src="/assets/images/Yellow_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="옐로우 콜라"
                 />
+                <p>Yellow_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
-              <button>
+              <button type="button" class="btn-cola" id="Cool_Cola">
                 <img
                   class="img-cola"
                   src="/assets/images/Cool_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="쿨 콜라"
                 />
+                <p>Cool_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
-              <button>
+              <button type="button" class="btn-cola" id="Green_Cola">
                 <img
                   class="img-cola"
                   src="/assets/images/Green_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="그린 콜라"
                 />
+                <p>Green_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
             <li>
-              <button>
+              <button type="button" class="btn-cola" id="Orange_Cola">
                 <img
                   class="img-cola"
                   src="/assets/images/Orange_Cola.png"
-                  alt="오리지날 콜라"
+                  alt="오렌지 콜라"
                 />
+                <p>Orange_Cola</p>
+                <p class="price">1000원</p>
               </button>
             </li>
           </ul>
+          <div class="input-box">
+            <div class="change-display">
+              <span>잔액:</span>
+              <span class="change-money">0 원</span>
+            </div>
+            <button type="button" class="btn-change-return">
+              거스름돈 반환
+            </button>
+            <input type="text" placeholder="입금액 입력" class="input-money" />
+            <button type="button" class="btn-deposit">입금</button>
+            <ul class="selected-cola-display"></ul>
+            <button class="btn-acquire" onclick="handleAcquire">획득</button>
+          </div>
         </div>
-        <div class="cart-wrapper">계산기</div>
+        <div class="cart-wrapper">
+          <div class="balance-box">
+            <div class="balance-display">
+              <span>소지금:</span>
+              <span class="balance-money" id="balance"
+                >25,000<span> 원</span></span
+              >
+            </div>
+          </div>
+          <div class="acquired-box">
+            <p class="acquired-box-title">획득한 음료</p>
+            <ul class="acquired-cola-display"></ul>
+            <div class="acquired-total">
+              <span>총 금액 : </span>
+              <span>9,000원</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
+    <script type="module" src="App.js"></script>
+    <!-- ES<script type="module" src="Data.js"></script> -->
   </body>
 </html>

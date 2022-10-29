@@ -6,9 +6,62 @@
 
 @mixin box-layout {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 360px;
   height: 545px;
-  padding: 31px 27px 31px;
-  background-color: white;
-  @include cola-image;
+  box-sizing: border-box;
+  font-family: $basic-font;
+}
+
+@mixin cola-menus {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  width: fit-content;
+  height: fit-content;
+}
+
+@mixin user-input-box {
+  display: grid;
+  grid-template-columns: 200px 94px;
+  grid-template-rows: 33px 33px 106px;
+  gap: 12px;
+  width: fit-content;
+  height: fit-content;
+}
+
+@mixin selected-cola-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 170px;
+  height: 46px;
+  box-sizing: border-box;
+  padding: 0 8px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-family: $basic-font;
+  .img-selected-cola {
+    width: 18px;
+    height: 33px;
+    vertical-align: middle;
+  }
+  .selected-cola-name {
+    font-size: 9px;
+    margin-left: 10px;
+  }
+  .selected-cola-qty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    font-size: 14px;
+  }
 }

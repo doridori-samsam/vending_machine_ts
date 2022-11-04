@@ -55,7 +55,6 @@ colaBtns.forEach((btn) =>
     --colas[colaIndex].stock;
     putColas(colaId, colaIndex);
     showSelectedColas(colaId);
-    console.log(selectedColaCart.children, "보여지는 자식들");
     if (colas[colaIndex].stock === 0) {
       (e.target as HTMLButtonElement).disabled = true;
     }
@@ -77,40 +76,59 @@ function putColas(colaId: string, colaIndex: number) {
   }
 }
 
-function showSelectedColas(colaId) {
+function showSelectedColas(colaId: string) {
   let selectedCola = document.createElement("li");
   let selectedColaInfo = document.createElement("div");
   let selectedColaImg = document.createElement("img");
   let selectedColaName = document.createElement("span");
   let selectedColaQty = document.createElement("div");
 
-  selectedColas.forEach((item, idx: number) => {
-    if (
-      selectedColaCart.children.length &&
-      selectedColaCart.children[idx].className.includes(colaId)
-    ) {
-      console.log(selectedColaCart.children[idx]);
-      selectedColaCart.children[idx].lastChild.innerText =
-        item.stock.toString();
-    } else {
-      console.log(item, idx);
-      selectedColaCart.appendChild(selectedCola);
-      selectedCola.classList.add("selected-cola", item.name);
-      selectedCola.appendChild(selectedColaInfo);
-      selectedColaInfo.appendChild(selectedColaImg);
-      selectedColaInfo.appendChild(selectedColaName);
-      selectedColaImg.classList.add("img-selected-cola");
-      selectedColaImg.src = `/assets/images/${item.name}.png`;
-      selectedColaImg.alt = item.name;
-      selectedColaName.classList.add("selected-cola-name");
-      selectedColaName.innerText = item.name;
-      selectedCola.appendChild(selectedColaQty);
-      selectedColaQty.classList.add("selected-cola-qty");
-      selectedColaQty.innerText = item.stock.toString();
-    }
-  });
+  selectedColaCart.appendChild(selectedCola);
+  selectedCola.classList.add("selected-cola", colaId);
+  selectedCola.appendChild(selectedColaInfo);
+  selectedColaInfo.appendChild(selectedColaImg);
+  selectedColaInfo.appendChild(selectedColaName);
+  selectedColaImg.classList.add("img-selected-cola");
+  selectedColaImg.src = `/assets/images/${colaId}.png`;
+  selectedColaImg.alt = selectedColas[selectedColas.length - 1].name;
+  selectedColaName.classList.add("selected-cola-name");
+  selectedColaName.innerText = colaId;
+  selectedCola.appendChild(selectedColaQty);
+  selectedColaQty.classList.add("selected-cola-qty");
+  selectedColaQty.innerText = "1";
+
+  console.log(selectedColaCart.children);
+
+  if (selectedColaCart.children.length) {
+  }
+  // selectedColas.forEach((item, idx: number) => {
+
+  //   console.log(item, idx, "아이템과 인덱스");
+  //   if (
+  //     selectedColaCart.children.length &&
+  //     selectedColaCart.children[idx].className.includes(colaId)
+  //   ) {
+  //     selectedColaCart.children[idx].lastChild.innerText =
+  //       item.stock.toString();
+  //   } else {
+  //     selectedColaCart.appendChild(selectedCola);
+  //     selectedCola.classList.add("selected-cola", item.name);
+  //     selectedCola.appendChild(selectedColaInfo);
+  //     selectedColaInfo.appendChild(selectedColaImg);
+  //     selectedColaInfo.appendChild(selectedColaName);
+  //     selectedColaImg.classList.add("img-selected-cola");
+  //     selectedColaImg.src = `/assets/images/${item.name}.png`;
+  //     selectedColaImg.alt = item.name;
+  //     selectedColaName.classList.add("selected-cola-name");
+  //     selectedColaName.innerText = item.name;
+  //     selectedCola.appendChild(selectedColaQty);
+  //     selectedColaQty.classList.add("selected-cola-qty");
+  //     selectedColaQty.innerText = item.stock.toString();
+  //   }
+  // });
 }
 
+console.log(selectedColaCart.children);
 /**선택된 콜라 객체 생성 */
 function SelectedColasObj(name: string, stock: number, price: number) {
   this.name = name;

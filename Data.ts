@@ -53,3 +53,5 @@ export let colas: Array<cola> = [
 ];
 
 export let selectedColas: Array<cola> = [];
+
+export let acquiredColas: Array<cola> = [];

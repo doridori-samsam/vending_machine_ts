@@ -36,3 +36,4 @@ export let colas = [
     },
 ];
 export let selectedColas = [];
+export let acquiredColas = [];

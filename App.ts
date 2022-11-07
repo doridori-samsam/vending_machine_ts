@@ -130,6 +130,7 @@ function sumUpRequiredPrice() {
     }, 0) * 1000);
 }
 
+console.log(selectedColaCart.children);
 /**선택된 콜라 객체 생성 */
 function SelectedColasObj(name: string, stock: number, price: number) {
   this.name = name;

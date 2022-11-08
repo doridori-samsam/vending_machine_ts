@@ -104,6 +104,10 @@ main {
       font-family: $bold-font;
       font-size: 14px;
       color: #ffffff;
+      &:disabled {
+        background-color: $disabled-color;
+        cursor: unset;
+      }
     }
   }
 }
@@ -149,11 +153,22 @@ main {
       font-size: 15px;
     }
     .acquired-cola-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: scroll;
       width: 306px;
       height: 364px;
+      padding-top: 12px;
+      box-sizing: border-box;
       border: 1px solid $border-color;
       border-radius: 5px;
       background-color: $bg-color;
+      .selected-cola {
+        width: 270px;
+        flex-shrink: 0;
+        @include selected-cola-box;
+      }
     }
     .acquired-total {
       align-self: flex-end;

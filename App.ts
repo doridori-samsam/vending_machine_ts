@@ -12,10 +12,18 @@ const userInput = document.querySelector(".input-money") as HTMLInputElement;
 /** 총 구매 금액 */
 let requiredMoney = 0;
 
+/** 총 구매 금액 display */
+const totalConsumption = document.getElementById(
+  "consumption"
+) as HTMLSpanElement;
+
 /** 선택된 콜라 리스트 display*/
 const selectedColaCart = document.querySelector(
   ".selected-cola-display"
 ) as HTMLUListElement;
+
+/** 획득한 콜라 리스트 display */
+const acquiredColaCart = document.querySelector(".acquired-cola-display");
 
 /** 콜라 메뉴 버튼 */
 const colaBtns = document.querySelectorAll(".btn-cola");
@@ -27,7 +35,7 @@ const insertBtn = document.querySelector(".btn-deposit");
 const changeReturnBtn = document.querySelector(".btn-change-return");
 
 /** 획득 버튼 */
-const acquireBtn = document.querySelector(".btn-acquire");
+const acquireBtn = document.querySelector(".btn-acquire") as HTMLButtonElement;
 
 /** 입금액 입력 event */
 userInput.addEventListener<"keyup">("keyup", (e: KeyboardEvent) => {
@@ -38,10 +46,19 @@ userInput.addEventListener<"keyup">("keyup", (e: KeyboardEvent) => {
 
 /** 입금 버튼 클릭 event */
 insertBtn?.addEventListener("click", () => {
-  userMoney.balance -= parseInt(userInput.value.replaceAll(",", ""));
-  userMoney.change += parseInt(userInput.value.replaceAll(",", ""));
-  displayMoney();
-  userInput.value = "";
+  if (!userInput.value) {
+    alert("돈을 넣어주세요! 💰");
+  } else if (
+    parseInt(userInput.value.replaceAll(",", "")) > userMoney.balance
+  ) {
+    alert("소지금이 부족해요! 😳");
+  } else {
+    userMoney.balance -= parseInt(userInput.value.replaceAll(",", ""));
+    userMoney.change += parseInt(userInput.value.replaceAll(",", ""));
+    displayMoney();
+    userInput.value = "";
+    acquireBtn.disabled = false;
+  }
 });
 
 /** 거스름돈 반환 버튼 클릭 */
@@ -54,17 +71,17 @@ changeReturnBtn?.addEventListener("click", () => {
 /**콜라 메뉴 버튼 클릭 */
 colaBtns.forEach((btn) =>
   btn.addEventListener("click", (e: Event) => {
+    console.log(userMoney, "소지금");
+    console.log(requiredMoney, "내야할 금액");
     let colaId = (e.target as HTMLButtonElement).id;
     let colaIndex: number = colas.findIndex((item) => item.name === colaId);
     --colas[colaIndex].stock;
     putColas(colaId, colaIndex);
     showSelectedColas(colaId);
     sumUpRequiredPrice();
-    console.log(requiredMoney);
     if (colas[colaIndex].stock === 0) {
       (e.target as HTMLButtonElement).disabled = true;
     }
-    //requiredMoney =
   })
 );
 
@@ -84,6 +101,7 @@ function putColas(colaId: string, colaIndex: number) {
 }
 
 function showSelectedColas(colaId: string) {
+  console.log(selectedColas);
   let selectedColaCartList = selectedColaCart.childNodes;
   let selectedCola = document.createElement("li");
   let selectedColaInfo = document.createElement("div");
@@ -122,15 +140,6 @@ function showSelectedColas(colaId: string) {
   }
 }
 
-/**구매시 총 필요한 가격 계산 함수 */
-function sumUpRequiredPrice() {
-  return (requiredMoney =
-    selectedColas.reduce((acc, cur) => {
-      return acc + cur.stock;
-    }, 0) * 1000);
-}
-
-console.log(selectedColaCart.children);
 /**선택된 콜라 객체 생성 */
 function SelectedColasObj(name: string, stock: number, price: number) {
   this.name = name;
@@ -144,8 +153,31 @@ function displayMoney() {
   userChange.innerText = userMoney.change.toLocaleString() + " 원";
 }
 
+/**구매시 총 필요한 가격 계산 함수 */
+function sumUpRequiredPrice() {
+  return (requiredMoney =
+    selectedColas.reduce((acc, cur) => {
+      return acc + cur.stock;
+    }, 0) * 1000);
+}
+
 /**획득 버튼 click event */
 acquireBtn?.addEventListener("click", () => {
-  acquiredColas.push(...selectedColas);
-  console.log(acquiredColas, "획득한 콜라");
+  if (userMoney.change < requiredMoney) {
+    alert("입금액이 부족해요! 😳");
+  } else {
+    acquiredColas.push(...selectedColas);
+    while (selectedColaCart.firstChild) {
+      acquiredColaCart?.append(selectedColaCart.firstChild);
+    }
+    userMoney.change -= requiredMoney;
+    userChange.innerText = userMoney.change.toLocaleString();
+    totalConsumption.innerText =
+      (
+        parseInt(totalConsumption.innerText.replaceAll(",", "")) + requiredMoney
+      ).toLocaleString() + " 원";
+    displayMoney();
+    requiredMoney = 0;
+    selectedColas.splice(0, selectedColas.length);
+  }
 });

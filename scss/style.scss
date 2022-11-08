@@ -4,6 +4,9 @@
 
 main {
   @include center-x;
+  @media (max-width: 767px) {
+    background-color: #300054;
+  }
   background-color: $bg-color;
   flex-direction: column;
   gap: 77px;
@@ -15,6 +18,7 @@ main {
 }
 
 .machine-wrapper {
+  @include mobile;
   display: flex;
   gap: 28px;
   width: fit-content;
@@ -76,9 +80,10 @@ main {
       outline: 1px solid $primary-color;
     }
     .selected-cola-display {
+      @include scrollbar;
       width: 200px;
       height: 108px;
-      padding: 12px 0 0 12px;
+      padding: 12px 4px 0 12px;
       overflow-y: scroll;
       overflow-x: hidden;
       box-sizing: border-box;
@@ -153,6 +158,7 @@ main {
       font-size: 15px;
     }
     .acquired-cola-display {
+      @include scrollbar;
       display: flex;
       flex-direction: column;
       align-items: center;

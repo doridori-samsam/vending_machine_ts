@@ -12,6 +12,10 @@ main {
   gap: 77px;
   box-sizing: border-box;
   .img-logo {
+    @media (max-width: 767px) {
+      width: 360px;
+      height: 160px;
+    }
     width: 386px;
     height: 178px;
   }
@@ -28,6 +32,7 @@ main {
 
 .cola-wrapper {
   @include box-layout;
+  @include mobile-wrappers;
   padding: 31px 0;
   gap: 20px;
   background-color: #ffffff;
@@ -56,6 +61,11 @@ main {
   .input-box {
     @include user-input-box;
     .change-display {
+      @media (max-width: 767px) {
+        background-color: transparent;
+        border: 1px solid #cacaff;
+        color: white;
+      }
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -68,6 +78,11 @@ main {
       font-size: 14px;
     }
     .input-money {
+      @media (max-width: 767px) {
+        background-color: transparent;
+        border: 1px solid #cacaff;
+        color: white;
+      }
       width: 200px;
       height: 33px;
       padding: 0 6px;
@@ -81,6 +96,10 @@ main {
     }
     .selected-cola-display {
       @include scrollbar;
+      @media (max-width: 767px) {
+        background-color: transparent;
+        color: white;
+      }
       width: 200px;
       height: 108px;
       padding: 12px 4px 0 12px;
@@ -102,6 +121,11 @@ main {
       @include input-money-btn;
     }
     .btn-acquire {
+      @media (max-width: 767px) {
+        background-color: transparent;
+        border: 1px solid white;
+        outline: 2px solid $primary-color;
+      }
       width: 94px;
       height: 108px;
       border-radius: 5px;
@@ -110,6 +134,10 @@ main {
       font-size: 14px;
       color: #ffffff;
       &:disabled {
+        @media (max-width: 767px) {
+          background-color: transparent;
+          outline: none;
+        }
         background-color: $disabled-color;
         cursor: unset;
       }
@@ -121,6 +149,7 @@ main {
   @include box-layout;
   gap: 28px;
   .balance-box {
+    @include mobile-wrappers;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,6 +157,9 @@ main {
     height: 50px;
     background-color: #ffffff;
     .balance-display {
+      @media (max-width: 767px) {
+        background-color: transparent;
+      }
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -144,6 +176,7 @@ main {
     }
   }
   .acquired-box {
+    @include mobile-wrappers;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,6 +191,7 @@ main {
       font-size: 15px;
     }
     .acquired-cola-display {
+      @include mobile-wrappers;
       @include scrollbar;
       display: flex;
       flex-direction: column;

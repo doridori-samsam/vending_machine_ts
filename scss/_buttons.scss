@@ -45,6 +45,9 @@
 }
 
 @mixin input-money-btn {
+  @media (max-width: 767px) {
+    color: white;
+  }
   width: 94px;
   height: 33px;
   border: 1px solid $border-color;
